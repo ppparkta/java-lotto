@@ -1,8 +1,7 @@
 package domain;
 
-import domain.enums.LottoMoney;
-
 public class Money {
+    public static final int LOTTO_PRICE = 1000;
     private final int originMoney;
 
     public Money(int originMoney) {
@@ -14,16 +13,16 @@ public class Money {
         if (originMoney < 0) {
             throw new IllegalArgumentException("돈은 양의 정수여야 합니다.");
         }
-        if (originMoney < LottoMoney.PRICE.getValue()) {
+        if (originMoney < LOTTO_PRICE) {
             throw new IllegalArgumentException("돈은 1,000원 이상이어야 합니다.");
         }
     }
 
     public int getBuyableLottoCount() {
-        return originMoney / LottoMoney.PRICE.getValue();
+        return originMoney / LOTTO_PRICE;
     }
 
     public int getChange() {
-        return originMoney % LottoMoney.PRICE.getValue();
+        return originMoney % LOTTO_PRICE;
     }
 }
