@@ -13,9 +13,9 @@ public enum Prize {
     FIRST("6개 일치", 2_000_000_000, 6),
     ;
 
-    private String matchedMessage;
-    private int prizeMoney;
-    private int matchedCount;
+    private final String matchedMessage;
+    private final int prizeMoney;
+    private final int matchedCount;
 
     public String getMatchedMessage() {
         return matchedMessage;
