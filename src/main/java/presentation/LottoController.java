@@ -6,7 +6,7 @@ import domain.Money;
 import domain.enums.Prize;
 import domain.numbergenerator.NumberGenerator;
 import domain.numbergenerator.RandomNumberGenerator;
-import dto.OutputLottosDto;
+import dto.OutputPurchasedLottosDto;
 import java.util.List;
 import java.util.Map;
 import service.LottoService;
@@ -25,8 +25,8 @@ public class LottoController {
             Money money = generateMoney();
 
             Lottos lottos = getLottos(money.getBuyableLottoCount());
-            List<OutputLottosDto> outputLottosDtos = lottoService.getOutputLottosDtos(lottos.getLottos());
-            OutputView.printLottos(outputLottosDtos);
+            List<OutputPurchasedLottosDto> outputPurchasedLottosDtos = lottoService.getOutputLottosDtos(lottos.getLottos());
+            OutputView.printLottos(outputPurchasedLottosDtos);
 
             List<Integer> answerNumbers = getAnswerNumbers();
             int bonusNumber = getBonusNumber();
