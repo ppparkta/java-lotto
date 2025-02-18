@@ -32,16 +32,14 @@ public enum Prize {
     }
 
     public static Prize getPrizeOf(int matchedCount, boolean isBonusMatched) {
-        List<Optional<Prize>> foundPrizes = new ArrayList<>();
+        List<Prize> foundPrizes = new ArrayList<>();
         for (Prize prize : Prize.values()) {
-            foundPrizes.add(findPrize(matchedCount, isBonusMatched, prize));
+            findPrize(matchedCount, isBonusMatched, prize).ifPresent(foundPrizes::add);
         }
-
-        if (foundPrizes.stream().noneMatch(Optional::isPresent)) {
+        if (foundPrizes.isEmpty()) {
             return Prize.EMPTY;
         }
-
-        return foundPrizes.stream().filter(Optional::isPresent).findFirst().get().get();
+        return foundPrizes.getFirst();
     }
 
     private static Optional<Prize> findPrize(int matchedCount, boolean isBonusMatched, Prize prize) {
