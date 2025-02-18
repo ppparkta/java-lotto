@@ -1,5 +1,7 @@
 package domain;
 
+import exception.IllegalPositiveIntegerException;
+
 public class Money {
     public static final int LOTTO_PRICE = 1000;
     private final int originMoney;
@@ -11,7 +13,7 @@ public class Money {
 
     private void validate(int originMoney) {
         if (originMoney < 0) {
-            throw new IllegalArgumentException("돈은 양의 정수여야 합니다.");
+            throw new IllegalPositiveIntegerException();
         }
         if (originMoney < LOTTO_PRICE) {
             throw new IllegalArgumentException("돈은 1,000원 이상이어야 합니다.");
