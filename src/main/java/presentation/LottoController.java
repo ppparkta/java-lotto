@@ -1,4 +1,4 @@
-package controller;
+package presentation;
 
 import domain.AnswerLotto;
 import domain.Lottos;
@@ -10,8 +10,8 @@ import dto.OutputLottosDto;
 import java.util.List;
 import java.util.Map;
 import service.LottoService;
-import view.InputView;
-import view.OutputView;
+import presentation.view.InputView;
+import presentation.view.OutputView;
 
 public class LottoController {
     private final LottoService lottoService;

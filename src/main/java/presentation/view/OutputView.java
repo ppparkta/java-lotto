@@ -1,4 +1,4 @@
-package view;
+package presentation.view;
 
 import domain.enums.Prize;
 import dto.OutputLottosDto;
